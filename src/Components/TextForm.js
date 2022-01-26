@@ -67,18 +67,18 @@ export default function TextForm(props) {
                 <textarea className="form-control" value={text} onChange={handleOnChange} id="myBox" rows="8" style={{backgroundColor : props.mode === 'dark'? '#282626': 'white', color : props.mode === 'dark' ? 'white':'black' }}></textarea>
                 </div>
                 <div className="parentContainer">
-                    <button className="btn btn-primary mx-3 my-1" onClick={convertToUpperCase}>Convert to UpperCase</button>
-                    <button className="btn btn-primary mx-3 my-1" onClick={convertToLowerCase}>Convert to LowerCase</button>
-                    <button className="btn btn-primary mx-3 my-1" onClick={reverseTextContent}>Reverse Text Content </button>
-                    <button className="btn btn-primary mx-3 my-1" onClick={intoTitleCase}>Convert to TitleCase </button>
-                    <button className="btn btn-primary mx-3 my-1" onClick={copyText}>Copy Text </button>
-                    <button className="btn btn-primary mx-3 my-1" onClick={removeExtraSpace}>Remove Extra Space </button>
+                    <button className="btn btn-primary mx-3 my-1" onClick={convertToUpperCase} disabled = {text.length === 0}>Convert to UpperCase</button>
+                    <button className="btn btn-primary mx-3 my-1" onClick={convertToLowerCase} disabled = {text.length === 0}>Convert to LowerCase</button>
+                    <button className="btn btn-primary mx-3 my-1" onClick={reverseTextContent} disabled = {text.length === 0}>Reverse Text Content </button>
+                    <button className="btn btn-primary mx-3 my-1" onClick={intoTitleCase} disabled = {text.length === 0}>Convert to TitleCase </button>
+                    <button className="btn btn-primary mx-3 my-1" onClick={copyText} disabled = {text.length === 0}>Copy Text </button>
+                    <button className="btn btn-primary mx-3 my-1" onClick={removeExtraSpace} disabled = {text.length === 0}>Remove Extra Space </button>
                 </div>
             </div>
             <div className="container my-3"  style= {{color : props.mode === 'dark' ? 'white':'black'}}>
                 <h2>Your Text Summary:</h2>
-                <p><strong>{text.split(" ").length}</strong> words and <strong>{text.length}</strong> characters.</p>
-                <p>Average time to read your content: <strong>{0.008 * text.split(" ").length} minutes</strong></p>
+                <p><strong>{text.split(" ").filter((element)=>{ return element.length !== 0}).length}</strong> words and <strong>{text.length}</strong> characters.</p>
+                <p>Average time to read your content: <strong>{0.008 * text.split(" ").filter((element)=>{ return element.length !== 0}).length} minutes</strong></p>
             </div>
             <div className="container my-3"  style = {{color : props.mode === 'dark' ? 'white':'black'}}>
                 <h2>Preview:</h2>
