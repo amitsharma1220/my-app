@@ -44,8 +44,8 @@ function App() {
       <Navbar title = "TextUtils" mode = {mode} toggleMode = {toggleMode} />
       <Alert alert = {alert} />
       <Routes>
-      <Route path="" element={<TextForm mode = {mode} showAlert={showAlert} />}/>
-      <Route path="/about" element={<About />}/>
+      <Route path="" element={<TextForm mode = {mode} showAlert={showAlert}  heading = "Try TextUtils - Word Counter , Character Counter"/>}/>
+      <Route path="/about" element={<About mode = {mode}/>}/>
     </Routes>
       </BrowserRouter>  
     </>
